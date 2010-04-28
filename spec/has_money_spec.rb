@@ -1,0 +1,74 @@
+
+require File.expand_path(File.dirname(__FILE__) + '/../lib/has_money')
+
+describe HasMoney do
+  
+  describe "including has money" do
+    it "should extend the class with class methods when included" do
+      klass = Class.new
+      klass.send :include, HasMoney
+      klass.should respond_to(:has_money)
+    end
+  end
+  
+  describe "working with money" do
+    before(:each) do
+      @klass = Class.new
+      @klass.class_eval do
+        include HasMoney
+        attr_accessor :price
+        has_money :price
+      end
+      @product = @klass.new
+      @product.price = 2999
+    end
+    
+    it "should create an accessor method named in_dollars for the attribute" do
+      @product.should respond_to(:price_in_dollars)
+    end
+    
+    it "should create a setter method named in_dollars for the attribute" do
+      @product.should respond_to(:price_in_dollars=)
+    end
+
+    it "should return the amount in dollars" do
+      @product.price_in_dollars.should == 29.99
+    end
+    
+    it "should set the amount in dollars with a float" do
+      @product.price_in_dollars = 39.99
+      @product.price.should == 3999
+    end
+    
+    it "should set the amount in dollars with a string" do
+      @product.price_in_dollars = '39.99'
+      @product.price.should == 3999
+    end
+    
+    it "should round the amount up to the nearest cent" do
+      @product.price_in_dollars = '39.998'
+      @product.price.should == 4000
+    end
+
+    it "should round the amount down to the nearest cent" do
+      @product.price_in_dollars = '39.992'
+      @product.price.should == 3999
+    end
+    
+    it "should set nil if nil is passed as dollars" do
+      @product.price_in_dollars = nil
+      @product.price.should == nil
+    end
+    
+    it "should set nil if an empty string is passed in as dollars" do
+      @product.price_in_dollars = ''
+      @product.price.should == nil      
+    end
+    
+    it "should return nil if the attribute is nil" do
+      @product.price = nil
+      @product.price_in_dollars.should == nil
+    end
+  end
+  
+end
