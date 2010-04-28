@@ -45,6 +45,16 @@ describe HasMoney do
       @product.price.should == 3999
     end
     
+    it "should set the amount in dollars with a dollar sign" do
+      @product.price_in_dollars = "$39.99"
+      @product.price.should == 3999
+    end
+
+    it "should set the amount in dollars with commas" do
+      @product.price_in_dollars = "2,500.99"
+      @product.price.should == 250099
+    end
+        
     it "should round the amount up to the nearest cent" do
       @product.price_in_dollars = '39.998'
       @product.price.should == 4000
