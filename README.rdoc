@@ -1,4 +1,6 @@
 = has_money
+
+== Usage
 In your ActiveRecord model:
   class Order < ActiveRecord::Base
     has_money :default_price
@@ -8,3 +10,10 @@ Defines methods :default_price_in_dollars and :default_price_in_dollars= which m
 
   > Order.new :default_price_in_dollars => '10.00'
   => #<Order default_price: 1000> 
+  
+== Install
+As a gem:
+  $ gem install has_money  
+
+As a plugin:
+  script/plugin install git://github.com/samvincent/has_money.git
