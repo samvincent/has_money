@@ -1,4 +1,3 @@
-
 require File.expand_path(File.dirname(__FILE__) + '/../lib/has_money')
 
 describe HasMoney do
