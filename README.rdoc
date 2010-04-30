@@ -1,13 +1,10 @@
 = has_money
-In your active record model:
+In your ActiveRecord model:
   class Order < ActiveRecord::Base
     has_money :default_price
   end
   
-Allows you to use 
-  
-  def default_price_in_dollars
-  end
+Defines methods :default_price_in_dollars and :default_price_in_dollars= which make life easier when building forms.
 
-  def default_price_in_dollars=(dollars)
-  end
+  > Order.new :default_price_in_dollars => '10.00'
+  => #<Order default_price: 1000> 
