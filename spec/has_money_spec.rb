@@ -1,3 +1,4 @@
+
 require File.expand_path(File.dirname(__FILE__) + '/../lib/has_money')
 
 describe HasMoney do
@@ -39,11 +40,16 @@ describe HasMoney do
       @product.price.should == 3999
     end
     
-    it "should set the amount in dollars with a string" do
+    it "should set the amount in dollars with a string with decimals" do
       @product.price_in_dollars = '39.99'
       @product.price.should == 3999
     end
-    
+
+    it "should set the amount in dollars with a string without decimals" do
+      @product.price_in_dollars = '39'
+      @product.price.should == 3900
+    end
+
     it "should set the amount in dollars with a dollar sign" do
       @product.price_in_dollars = "$39.99"
       @product.price.should == 3999
@@ -71,6 +77,11 @@ describe HasMoney do
     
     it "should set nil if an empty string is passed in as dollars" do
       @product.price_in_dollars = ''
+      @product.price.should == nil
+    end
+
+    it "should set nil if a non numerical string is passed in as dollars" do
+      @product.price_in_dollars = 'two dollars'
       @product.price.should == nil      
     end
     

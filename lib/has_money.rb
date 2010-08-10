@@ -28,9 +28,12 @@ module HasMoney
     end
 
     def calculate_cents_from_dollars(dollars)
-      return nil if dollars.nil? || dollars == ''
-      dollars.gsub!(/[$,]/, "") if dollars.class == String
-      (BigDecimal(dollars.to_s).round(2) * 100).to_i
+      return nil if dollars.nil?
+
+      dollars = dollars.to_s.gsub(/[$,]/, "")
+      return nil unless dollars.match(/^\d+(\.\d+)?$/) # xx.xxx
+
+      (BigDecimal(dollars).round(2) * 100).to_i
     end
         
   end
