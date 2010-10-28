@@ -59,6 +59,11 @@ describe HasMoney do
       @product.price_in_dollars = "2,500.99"
       @product.price.should == 250099
     end
+    
+    it "should set the amount in dollars if only cents with a period" do
+      @product.price_in_dollars = ".59"
+      @product.price.should == 59
+    end
         
     it "should round the amount up to the nearest cent" do
       @product.price_in_dollars = '39.998'
