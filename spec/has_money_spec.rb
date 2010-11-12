@@ -64,7 +64,12 @@ describe HasMoney do
       @product.price_in_dollars = ".59"
       @product.price.should == 59
     end
-        
+    
+    it "should set the amount in dollars if it has leading and trailing spaces" do
+      @product.price_in_dollars = " 0.59 "
+      @product.price.should == 59
+    end
+    
     it "should round the amount up to the nearest cent" do
       @product.price_in_dollars = '39.998'
       @product.price.should == 4000

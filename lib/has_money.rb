@@ -30,7 +30,7 @@ module HasMoney
     def calculate_cents_from_dollars(dollars)
       return nil if dollars.nil?
 
-      dollars = dollars.to_s.gsub(/[$,]/, "")
+      dollars = dollars.to_s.gsub(/[$,]/, "").strip
       dollars[0] = '0.' if dollars =~ /^\.\d{1,2}/
       return nil unless dollars.match(/^\d+(\.\d+)?$/) # xx.xxx
 
