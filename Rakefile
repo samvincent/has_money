@@ -9,7 +9,7 @@ begin
     gem.description = "Parsing the various ways people enter dollar amounts so you don't have to. Store values in cents as integer."
     gem.email = "sam.vincent@mac.com"
     gem.homepage = "http://github.com/samvincent/has_money"
-    gem.authors = ["Greg Bell", "Sam Vincent", "Howard Yeh"]
+    gem.authors = ["Greg Bell", "Sam Vincent", "Philippe Creux"]
     gem.add_development_dependency "rspec", ">= 1.2.9"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
