@@ -14,6 +14,9 @@ Defines methods :default_price_in_dollars and :default_price_in_dollars= which m
 == Install
 As a gem:
   $ gem install has_money  
+  
+In your `Gemfile`:
+  gem 'has_money'
 
 As a plugin:
   script/plugin install git://github.com/samvincent/has_money.git
