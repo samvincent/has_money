@@ -24,7 +24,7 @@ module HasMoney
     
     def calculate_dollars_from_cents(cents)
       return nil if cents.nil? ||  cents == ''
-      (BigDecimal(cents.to_s) / 100).to_f
+      "%.2f" % (BigDecimal(cents.to_s) / 100).to_f
     end
 
     def calculate_cents_from_dollars(dollars)

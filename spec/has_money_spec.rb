@@ -1,4 +1,4 @@
-
+require 'active_record'
 require File.expand_path(File.dirname(__FILE__) + '/../lib/has_money')
 
 describe HasMoney do
@@ -32,7 +32,7 @@ describe HasMoney do
     end
 
     it "should return the amount in dollars" do
-      @product.price_in_dollars.should == 29.99
+      @product.price_in_dollars.should == '29.99'
     end
     
     it "should set the amount in dollars with a float" do
@@ -93,6 +93,11 @@ describe HasMoney do
     it "should set nil if a non numerical string is passed in as dollars" do
       @product.price_in_dollars = 'two dollars'
       @product.price.should == nil      
+    end
+    
+    it "should return string formatted to two decimal places" do
+      @product.price_in_dollars = '99'
+      @product.price_in_dollars.should == '99.00'
     end
     
     it "should return nil if the attribute is nil" do
