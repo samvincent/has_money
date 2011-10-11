@@ -32,7 +32,7 @@ module HasMoney
 
       dollars = dollars.to_s.gsub(/[$,]/, "").strip
       dollars[0] = '0.' if dollars =~ /^\.\d{1,2}/
-      return nil unless dollars.match(/^\d+(\.\d+)?$/) # xx.xxx
+      return nil unless dollars.match(/^\d+\.?(\d+)?$/) # xx.xxx
 
       (BigDecimal(dollars).round(2) * 100).to_i
     end
