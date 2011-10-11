@@ -79,6 +79,11 @@ describe HasMoney do
       @product.price_in_dollars = '39.992'
       @product.price.should == 3999
     end
+
+    it "should assume zero cents if none given after decimal point" do
+      @product.price_in_dollars = '39.'
+      @product.price.should == 3900
+    end
     
     it "should set nil if nil is passed as dollars" do
       @product.price_in_dollars = nil
