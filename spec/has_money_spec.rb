@@ -99,7 +99,12 @@ describe HasMoney do
       @product.price_in_dollars = 'two dollars'
       @product.price.should == nil      
     end
-    
+
+    it "should respect negative signs" do
+      @product.price_in_dollars = '-$8.12'
+      @product.price.should == -812
+    end
+
     it "should return string formatted to two decimal places" do
       @product.price_in_dollars = '99'
       @product.price_in_dollars.should == '99.00'
