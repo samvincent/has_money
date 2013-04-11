@@ -34,6 +34,11 @@ describe HasMoney do
     it "should return the amount in dollars" do
       @product.price_in_dollars.should == '29.99'
     end
+
+    it "should return the amount in dollars correctly when negative" do
+      @product.price = -4200
+      @product.price_in_dollars.should == '-42.00'
+    end
     
     it "should set the amount in dollars with a float" do
       @product.price_in_dollars = 39.99
