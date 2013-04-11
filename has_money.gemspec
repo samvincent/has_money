@@ -4,14 +4,14 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{has_money}
-  s.version = "0.2.1"
+  s.name = "has_money"
+  s.version = "0.3.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = [%q{Greg Bell}, %q{Sam Vincent}, %q{Philippe Creux}]
-  s.date = %q{2011-10-11}
-  s.description = %q{Parsing the various ways people enter dollar amounts so you don't have to. Store values in cents as integer.}
-  s.email = %q{sam.vincent@mac.com}
+  s.authors = ["Greg Bell", "Sam Vincent", "Philippe Creux"]
+  s.date = "2013-04-11"
+  s.description = "Parsing the various ways people enter dollar amounts so you don't have to. Store values in cents as integer."
+  s.email = "sam.vincent@mac.com"
   s.extra_rdoc_files = [
     "LICENSE",
     "README.rdoc"
@@ -19,6 +19,7 @@ Gem::Specification.new do |s|
   s.files = [
     ".document",
     "CHANGELOG.md",
+    "Gemfile",
     "LICENSE",
     "README.rdoc",
     "Rakefile",
@@ -27,21 +28,30 @@ Gem::Specification.new do |s|
     "lib/has_money.rb",
     "spec/has_money_spec.rb"
   ]
-  s.homepage = %q{http://github.com/samvincent/has_money}
-  s.require_paths = [%q{lib}]
-  s.rubygems_version = %q{1.8.6}
-  s.summary = %q{Parsing the various ways people enter dollar amounts so you don't have to.}
+  s.homepage = "http://github.com/samvincent/has_money"
+  s.require_paths = ["lib"]
+  s.rubygems_version = "1.8.25"
+  s.summary = "Parsing the various ways people enter dollar amounts so you don't have to."
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_development_dependency(%q<rspec>, [">= 1.2.9"])
+      s.add_development_dependency(%q<bundler>, [">= 0"])
+      s.add_development_dependency(%q<activerecord>, [">= 0"])
+      s.add_development_dependency(%q<rspec>, ["~> 2.8.0"])
+      s.add_development_dependency(%q<jeweler>, ["~> 1.8.4"])
     else
-      s.add_dependency(%q<rspec>, [">= 1.2.9"])
+      s.add_dependency(%q<bundler>, [">= 0"])
+      s.add_dependency(%q<activerecord>, [">= 0"])
+      s.add_dependency(%q<rspec>, ["~> 2.8.0"])
+      s.add_dependency(%q<jeweler>, ["~> 1.8.4"])
     end
   else
-    s.add_dependency(%q<rspec>, [">= 1.2.9"])
+    s.add_dependency(%q<bundler>, [">= 0"])
+    s.add_dependency(%q<activerecord>, [">= 0"])
+    s.add_dependency(%q<rspec>, ["~> 2.8.0"])
+    s.add_dependency(%q<jeweler>, ["~> 1.8.4"])
   end
 end
 
