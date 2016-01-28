@@ -5,16 +5,23 @@ In your ActiveRecord model:
   class Order < ActiveRecord::Base
     has_money :default_price
   end
-  
+
 Defines methods :default_price_in_dollars and :default_price_in_dollars= which make life easier when building forms.
 
   > Order.new :default_price_in_dollars => '10.00'
-  => #<Order default_price: 1000> 
-  
+  => #<Order default_price: 1000>
+
+If you want to store your prices in cents but offer a form input that rounds to the nearest dollar
+
+  > order = Order.new :default_price_in_dollars_without_cents => '9.99'
+  => #<Order default_price: 1000>
+  > order.default_price_in_dollars_without_cents
+  => '10'
+
 == Install
 As a gem:
-  $ gem install has_money  
-  
+  $ gem install has_money
+
 In your `Gemfile`:
   gem 'has_money'
 
